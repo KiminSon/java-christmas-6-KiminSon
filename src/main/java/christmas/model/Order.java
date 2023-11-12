@@ -30,7 +30,7 @@ public class Order {
                 return item;
             }
         }
-        throw new IllegalArgumentException("없는 메뉴 항목: " + name);
+        throw new IllegalArgumentException(ERROR_ORDER_MASSAGE);
     }
 
     public void validateOrderItem(Map<Menu.MenuItem, Integer> orderItems, Menu.MenuItem menuItem, int quantity) {
