@@ -9,18 +9,18 @@ public class Order {
     public Map<Menu.MenuItem, Integer> orderItem(String input) {
         Map<Menu.MenuItem, Integer> orderItems = new LinkedHashMap<>();
         String[] items = input.split(",");
-
+        int totalQuantity = 0;
         for (String item : items) {
             String[] parts = item.trim().split("-");
             int quantity = Integer.parseInt(parts[1]);
+            totalQuantity += quantity;
 
             Menu.MenuItem menuItem = findMenuItemByName(parts[0]);
-
-            validateOrderItem(orderItems, menuItem, quantity);
+            validatequantity(totalQuantity, quantity);
+            validateOrderItem(orderItems, menuItem);
 
             orderItems.put(menuItem, quantity);
         }
-
         return orderItems;
     }
 
@@ -33,7 +33,11 @@ public class Order {
         throw new IllegalArgumentException(ERROR_ORDER_MASSAGE);
     }
 
-    public void validateOrderItem(Map<Menu.MenuItem, Integer> orderItems, Menu.MenuItem menuItem, int quantity) {
+    public void validatequantity(int totalQuantity, int quantity){
+
+    }
+
+    public void validateOrderItem(Map<Menu.MenuItem, Integer> orderItems, Menu.MenuItem menuItem) {
         isDuplicateMenu(orderItems, menuItem);
     }
 
