@@ -14,13 +14,13 @@ public class Order {
             String[] parts = item.trim().split("-");
             int quantity = Integer.parseInt(parts[1]);
             totalQuantity += quantity;
-
             Menu.MenuItem menuItem = findMenuItemByName(parts[0]);
             validatequantity(totalQuantity, quantity);
-            validateOrderItem(orderItems, menuItem);
+            isDuplicateMenu(orderItems, menuItem);
 
             orderItems.put(menuItem, quantity);
         }
+        isAllBeverages(orderItems);
         return orderItems;
     }
 
@@ -44,8 +44,13 @@ public class Order {
         }
     }
 
-    public void validateOrderItem(Map<Menu.MenuItem, Integer> orderItems, Menu.MenuItem menuItem) {
-        isDuplicateMenu(orderItems, menuItem);
+    public void isAllBeverages(Map<Menu.MenuItem, Integer> orderItems) {
+        for (Menu.MenuItem item : orderItems.keySet()) {
+            if (item.getMenuType() != Menu.MenuType.BEVERAGE) {
+                return;
+            }
+        }
+        throw new IllegalArgumentException(ERROR_ORDER_MASSAGE);
     }
 
     public void isDuplicateMenu(Map<Menu.MenuItem, Integer> orderItems, Menu.MenuItem menuItem) {
