@@ -15,6 +15,7 @@ public class ChristmasController {
     public void startChristmas() {
         int visitDay = inputDate();
         Map<Menu.MenuItem, Integer> orderItem = inputItem();
+        outputView.printMenu(visitDay, orderItem);
     }
 
     public int inputDate() {
