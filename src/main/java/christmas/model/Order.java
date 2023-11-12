@@ -35,6 +35,7 @@ public class Order {
 
     public void validatequantity(int totalQuantity, int quantity) {
         isValidRange(totalQuantity);
+        isValidRange(quantity);
     }
 
     public void isValidRange(int quantity) {
