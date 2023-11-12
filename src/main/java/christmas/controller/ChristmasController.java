@@ -19,6 +19,7 @@ public class ChristmasController {
         Map<Menu.MenuItem, Integer> orderItem = inputItem();
         outputView.printMenu(visitDay, orderItem);
         int totalPrice = calculateTotalPrice(orderItem);
+        outputView.printFreeGift(christmasCalculation.giveFreeGift(totalPrice));
     }
 
     public int inputDate() {

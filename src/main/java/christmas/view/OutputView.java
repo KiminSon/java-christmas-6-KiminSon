@@ -34,4 +34,9 @@ public class OutputView {
         System.out.println("\n<할인 전 총주문 금액>");
         System.out.println(String.format("%,d원", totalPrice));
     }
+
+    public void printFreeGift(String freeGift) {
+        System.out.println("\n<증정 메뉴>");
+        System.out.println(freeGift);
+    }
 }
