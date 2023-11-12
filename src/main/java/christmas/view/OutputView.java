@@ -22,11 +22,16 @@ public class OutputView {
     }
 
     public void printMenu(int visitDay, Map<Menu.MenuItem, Integer> orderItem) {
-        System.out.println("12월 " + visitDay + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n");
+        System.out.println("12월 " + visitDay + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
 
-        System.out.println("<주문 메뉴>");
+        System.out.println("\n<주문 메뉴>");
         for (Map.Entry<Menu.MenuItem, Integer> entry : orderItem.entrySet()) {
             System.out.println(entry.getKey().getName() + " " + entry.getValue() + "개");
         }
+    }
+
+    public void printTotalPrice(int totalPrice) {
+        System.out.println("\n<할인 전 총주문 금액>");
+        System.out.println(String.format("%,d원", totalPrice));
     }
 }
