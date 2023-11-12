@@ -34,7 +34,13 @@ public class Order {
     }
 
     public void validatequantity(int totalQuantity, int quantity) {
+        isValidRange(totalQuantity);
+    }
 
+    public void isValidRange(int quantity) {
+        if (quantity < 1 || quantity > 20) {
+            throw new IllegalArgumentException(ERROR_ORDER_MASSAGE);
+        }
     }
 
     public void validateOrderItem(Map<Menu.MenuItem, Integer> orderItems, Menu.MenuItem menuItem) {
