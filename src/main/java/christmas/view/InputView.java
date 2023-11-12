@@ -30,6 +30,8 @@ public class InputView {
     }
 
     public void validateReadItem(String input) {
-
+        if (!input.matches("^([가-힣]+-\\d+)(,[가-힣]+-\\d+)*$")) {
+            throw new IllegalArgumentException(ERROR_ORDER_MASSAGE);
+        }
     }
 }

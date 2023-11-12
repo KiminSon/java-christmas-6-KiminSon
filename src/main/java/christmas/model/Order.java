@@ -33,7 +33,7 @@ public class Order {
         throw new IllegalArgumentException(ERROR_ORDER_MASSAGE);
     }
 
-    public void validatequantity(int totalQuantity, int quantity){
+    public void validatequantity(int totalQuantity, int quantity) {
 
     }
 
