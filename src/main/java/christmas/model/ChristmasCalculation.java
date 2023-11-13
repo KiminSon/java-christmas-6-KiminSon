@@ -20,7 +20,7 @@ public class ChristmasCalculation {
         return "샴페인 1개";
     }
 
-    public Map<String, Integer> discount(int totalPrice, int visitDay, Map<Menu.MenuItem, Integer> orderItem) {
+    public Map<String, Integer> getDiscount(int totalPrice, int visitDay, Map<Menu.MenuItem, Integer> orderItem) {
         Map<String, Integer> discountPrize = new LinkedHashMap<>();
         if (giveFreeGift(totalPrice).equals("없음")) {
             if (totalPrice < 10000 || caculateDiscount(visitDay, orderItem).isEmpty()) {
@@ -98,5 +98,13 @@ public class ChristmasCalculation {
             }
         }
         return totalMainCourse * 2023;
+    }
+
+    public int getTotalDiscount(Map<String, Integer> discountPrize) {
+        int totalDiscount = 0;
+        for (Integer value : discountPrize.values()) {
+            totalDiscount += value;
+        }
+        return totalDiscount;
     }
 }

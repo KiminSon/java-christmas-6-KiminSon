@@ -53,4 +53,9 @@ public class OutputView {
             System.out.println(entry.getKey() + ": " + formattedValue);
         }
     }
+
+    public void printTotalDiscount(int totalDiscount) {
+        System.out.println("\n<총혜택 금액>");
+        System.out.println(String.format("%,d원", totalDiscount));
+    }
 }

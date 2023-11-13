@@ -21,6 +21,7 @@ public class ChristmasController {
         int totalPrice = calculateTotalPrice(orderItem);
         outputView.printFreeGift(christmasCalculation.giveFreeGift(totalPrice));
         Map<String, Integer> discountPrize = calculateDiscount(totalPrice, visitDay, orderItem);
+        int totalDiscount = calculateTotalDiscount(discountPrize);
     }
 
     public int inputDate() {
@@ -53,8 +54,14 @@ public class ChristmasController {
     }
 
     public Map<String, Integer> calculateDiscount(int totalPrice, int visitDay, Map<Menu.MenuItem, Integer> orderItem) {
-        Map<String, Integer> discountPrize = christmasCalculation.discount(totalPrice, visitDay, orderItem);
+        Map<String, Integer> discountPrize = christmasCalculation.getDiscount(totalPrice, visitDay, orderItem);
         outputView.printDiscount(discountPrize);
         return discountPrize;
+    }
+
+    public int calculateTotalDiscount(Map<String, Integer> discountPrize) {
+        int totalDiscount = christmasCalculation.getTotalDiscount(discountPrize);
+        outputView.printTotalDiscount(totalDiscount);
+        return totalDiscount;
     }
 }
