@@ -23,6 +23,7 @@ public class ChristmasController {
         Map<String, Integer> discountPrize = calculateDiscount(totalPrice, visitDay, orderItem);
         int totalDiscount = calculateTotalDiscount(discountPrize);
         calculateRealPrice(totalPrice, totalDiscount);
+        calculateBadge(totalDiscount);
     }
 
     public int inputDate() {
@@ -69,5 +70,10 @@ public class ChristmasController {
     public void calculateRealPrice(int totalPrice, int totalDiscount) {
         int realPrice = christmasCalculation.getRealPrice(totalPrice, totalDiscount);
         outputView.printRealPrice(realPrice);
+    }
+
+    public void calculateBadge(int totalDiscount) {
+        String badge = christmasCalculation.getBadge(totalDiscount);
+        outputView.printBadge(badge);
     }
 }
