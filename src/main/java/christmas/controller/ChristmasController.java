@@ -20,6 +20,7 @@ public class ChristmasController {
         outputView.printMenu(visitDay, orderItem);
         int totalPrice = calculateTotalPrice(orderItem);
         outputView.printFreeGift(christmasCalculation.giveFreeGift(totalPrice));
+        Map<String, Integer> discountPrize = calculateDiscount(totalPrice, visitDay, orderItem);
     }
 
     public int inputDate() {
@@ -49,5 +50,11 @@ public class ChristmasController {
         int totalPrice = christmasCalculation.caculateTotal(orderItem);
         outputView.printTotalPrice(totalPrice);
         return totalPrice;
+    }
+
+    public Map<String, Integer> calculateDiscount(int totalPrice, int visitDay, Map<Menu.MenuItem, Integer> orderItem) {
+        Map<String, Integer> discountPrize = christmasCalculation.discount(totalPrice, visitDay, orderItem);
+        outputView.printDiscount(discountPrize);
+        return discountPrize;
     }
 }

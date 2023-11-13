@@ -39,4 +39,18 @@ public class OutputView {
         System.out.println("\n<증정 메뉴>");
         System.out.println(freeGift);
     }
+
+    public void printDiscount(Map<String, Integer> discountPrize) {
+        System.out.println("\n<혜택 내역>");
+
+        String firstKey = discountPrize.keySet().iterator().next();
+        if (firstKey.equals("없음")) {
+            System.out.println(firstKey);
+            return;
+        }
+        for (Map.Entry<String, Integer> entry : discountPrize.entrySet()) {
+            String formattedValue = String.format("%,d원", entry.getValue());
+            System.out.println(entry.getKey() + ": " + formattedValue);
+        }
+    }
 }
