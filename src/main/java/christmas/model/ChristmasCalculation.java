@@ -107,4 +107,11 @@ public class ChristmasCalculation {
         }
         return totalDiscount;
     }
+
+    public int getRealPrice(int totalPrice, int totalDiscount) {
+        if (giveFreeGift(totalPrice).equals("없음")) {
+            return totalPrice + totalDiscount;
+        }
+        return totalPrice + totalDiscount + 25000;
+    }
 }

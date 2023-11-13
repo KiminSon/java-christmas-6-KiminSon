@@ -22,6 +22,7 @@ public class ChristmasController {
         outputView.printFreeGift(christmasCalculation.giveFreeGift(totalPrice));
         Map<String, Integer> discountPrize = calculateDiscount(totalPrice, visitDay, orderItem);
         int totalDiscount = calculateTotalDiscount(discountPrize);
+        calculateRealPrice(totalPrice, totalDiscount);
     }
 
     public int inputDate() {
@@ -63,5 +64,10 @@ public class ChristmasController {
         int totalDiscount = christmasCalculation.getTotalDiscount(discountPrize);
         outputView.printTotalDiscount(totalDiscount);
         return totalDiscount;
+    }
+
+    public void calculateRealPrice(int totalPrice, int totalDiscount) {
+        int realPrice = christmasCalculation.getRealPrice(totalPrice, totalDiscount);
+        outputView.printRealPrice(realPrice);
     }
 }
