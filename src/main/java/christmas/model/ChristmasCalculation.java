@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ChristmasCalculation {
-    public int caculateTotal(Map<Menu.MenuItem, Integer> orderItem) {
+    public int calculateTotal(Map<Menu.MenuItem, Integer> orderItem) {
         int totalPrice = 0;
         for (Map.Entry<Menu.MenuItem, Integer> entry : orderItem.entrySet()) {
             Menu.MenuItem menuItem = entry.getKey();
@@ -23,17 +23,17 @@ public class ChristmasCalculation {
     public Map<String, Integer> getDiscount(int totalPrice, int visitDay, Map<Menu.MenuItem, Integer> orderItem) {
         Map<String, Integer> discountPrize = new LinkedHashMap<>();
         if (giveFreeGift(totalPrice).equals("없음")) {
-            if (totalPrice < 10000 || caculateDiscount(visitDay, orderItem).isEmpty()) {
+            if (totalPrice < 10000 || calculateDiscount(visitDay, orderItem).isEmpty()) {
                 discountPrize.put("없음", 0);
                 return discountPrize;
             }
         }
-        discountPrize = caculateDiscount(visitDay, orderItem);
+        discountPrize = calculateDiscount(visitDay, orderItem);
         discountPrize.put("증정 이벤트", -25000);
         return discountPrize;
     }
 
-    public Map<String, Integer> caculateDiscount(int visitDay, Map<Menu.MenuItem, Integer> orderItem) {
+    public Map<String, Integer> calculateDiscount(int visitDay, Map<Menu.MenuItem, Integer> orderItem) {
         Map<String, Integer> discountPrize = new LinkedHashMap<>();
         DecemberDiscount discountDay = findDiscountDay(visitDay);
         if (discountDay.getDailyDiscount() > 0) {

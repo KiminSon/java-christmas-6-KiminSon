@@ -50,7 +50,7 @@ public class ChristmasController {
     }
 
     public int calculateTotalPrice(Map<Menu.MenuItem, Integer> orderItem) {
-        int totalPrice = christmasCalculation.caculateTotal(orderItem);
+        int totalPrice = christmasCalculation.calculateTotal(orderItem);
         outputView.printTotalPrice(totalPrice);
         return totalPrice;
     }

@@ -32,7 +32,8 @@ public class OutputView {
 
     public void printTotalPrice(int totalPrice) {
         System.out.println("\n<할인 전 총주문 금액>");
-        System.out.println(String.format("%,d원", totalPrice));
+        String distinguishedTotalPrice = String.format("%,d원", totalPrice);
+        System.out.println(distinguishedTotalPrice);
     }
 
     public void printFreeGift(String freeGift) {
@@ -56,12 +57,14 @@ public class OutputView {
 
     public void printTotalDiscount(int totalDiscount) {
         System.out.println("\n<총혜택 금액>");
-        System.out.println(String.format("%,d원", totalDiscount));
+        String distinguishedTotalDiscount = String.format("%,d원", totalDiscount);
+        System.out.println(distinguishedTotalDiscount);
     }
 
     public void printRealPrice(int realPrice) {
         System.out.println("\n<할인 후 예상 결제 금액>");
-        System.out.println(String.format("%,d원", realPrice));
+        String distinguishedRealPrice = String.format("%,d원", realPrice);
+        System.out.println(distinguishedRealPrice);
     }
 
     public void printBadge(String badge) {

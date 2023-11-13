@@ -15,7 +15,7 @@ public class Order {
             int quantity = Integer.parseInt(parts[1]);
             totalQuantity += quantity;
             Menu.MenuItem menuItem = findMenuItemByName(parts[0]);
-            validatequantity(totalQuantity, quantity);
+            validateQuantity(totalQuantity, quantity);
             isDuplicateMenu(orderItems, menuItem);
 
             orderItems.put(menuItem, quantity);
@@ -33,7 +33,7 @@ public class Order {
         throw new IllegalArgumentException(ERROR_ORDER_MASSAGE);
     }
 
-    public void validatequantity(int totalQuantity, int quantity) {
+    public void validateQuantity(int totalQuantity, int quantity) {
         isValidRange(totalQuantity);
         isValidRange(quantity);
     }
