@@ -29,7 +29,9 @@ public class ChristmasCalculation {
             }
         }
         discountPrize = calculateDiscount(visitDay, orderItem);
-        discountPrize.put("증정 이벤트", -25000);
+        if (giveFreeGift(totalPrice).equals("샴페인 1개")) {
+            discountPrize.put("증정 이벤트", -25000);
+        }
         return discountPrize;
     }
 
